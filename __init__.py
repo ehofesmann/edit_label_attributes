@@ -2,6 +2,8 @@ import fiftyone.operators as foo
 import fiftyone.operators.types as types
 import fiftyone.core.labels as fol
 
+IGNORE_ATTRS = ["id", "attributes", "tags"]
+
 def get_label(samples, label_dict):
     view = samples.select_labels(ids=[label_dict[0]["labelId"]])
     sample = view.first()
@@ -48,8 +50,8 @@ class EditLabelAttributes(foo.Operator):
 
         sample, label = get_label(ctx.dataset, label_dict)
         ctx.params["parse_values"] = {}
-        for attr_name, attr_value in label.iter_attributes():
-            if isinstance(attr_value, (str, bool, int, float)):
+        for attr_name, attr_value in label.iter_fields():
+            if attr_name not in IGNORE_ATTRS and isinstance(attr_value, (str, bool, int, float)):
                 ctx.params["parse_values"][attr_name] = type(attr_value)
                 getattr(inputs, type(attr_value).__name__)(attr_name, label=attr_name, default=attr_value)
 
