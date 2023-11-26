@@ -1,12 +1,15 @@
 ## TODO:
 
-[ ] Support video and frame label editing
-[ ] Support editing default fields
+- [ ] Support video and frame label editing
+- [ ] Support editing default fields
 
 ## Label attribute editor 
 
 This plugin allows you to edit the attributes of selected labels in the
 FiftyOne App.
+
+![image](https://github.com/ehofesmann/edit_label_attributes/assets/21222883/0957b3c5-be4e-492c-94e9-8ca905a53179)
+<!-- ![image](https://github.com/ehofesmann/edit_label_attributes/assets/21222883/2a80457a-6eb1-4c07-a9f6-46db4d0398d1) -->
 
 
 ## Installation
