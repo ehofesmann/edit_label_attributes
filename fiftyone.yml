@@ -1,0 +1,9 @@
+name: "@ehofesmann/edit_label_attributes"
+description: This plugin allows you to edit the attributes of selected labels in the FiftyOne App.
+version: 1.0.0
+fiftyone:
+  version: "*"
+url: https://github.com/ehofesmann/edit_label_attributes
+license: Apache 2.0
+operators:
+  - edit_label_attributes
