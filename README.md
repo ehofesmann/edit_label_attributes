@@ -26,6 +26,7 @@ locally.
 
 After installing this plugin, you can try the example yourself on the `quickstart` dataset.
 ```python
+import fiftyone as fo
 import fiftyone.zoo as foz
 
 dataset = foz.load_zoo_dataset("quickstart")
