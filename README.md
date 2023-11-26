@@ -34,4 +34,4 @@ session = fo.launch_app(dataset)
 
 
 Click on the first image to expand it in the sample modal, select one of the
-labels, then click the edit button.
+labels, then click the `Edit label attributes` button.
