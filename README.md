@@ -15,7 +15,7 @@ FiftyOne App.
 ## Installation
 
 ```shell
-fiftyone plugins download https://github.com/ehofesmann/plotly_panel
+fiftyone plugins download https://github.com/ehofesmann/edit_label_attributes
 ```
 
 Refer to the [main README](https://github.com/voxel51/fiftyone-plugins) for
