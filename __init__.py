@@ -5,7 +5,7 @@ import fiftyone.core.labels as fol
 IGNORE_ATTRS = ["id", "attributes", "tags"]
 
 def get_label(samples, label_dict):
-    view = samples.select_labels(ids=[label_dict[0]["labelId"]])
+    view = samples.select_labels(ids=[label_dict[0]["label_id"]])
     sample = view.first()
     label = sample[label_dict[0]["field"]]
     if isinstance(label, fol._HasLabelList):
