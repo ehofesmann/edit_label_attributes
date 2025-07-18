@@ -1,11 +1,20 @@
 import fiftyone.operators as foo
 import fiftyone.operators.types as types
 import fiftyone.core.labels as fol
+import fiftyone.core.media as fomm
+
 
 IGNORE_ATTRS = ["id", "attributes", "tags"]
 
 def get_label(samples, label_dict):
-    view = samples.select_labels(ids=[label_dict[0]["label_id"]])
+
+    label_id = label_dict[0]["label_id"]
+    if samples.media_type == fomm.GROUP:
+        view = samples.select_group_slices(_allow_mixed=True)
+    else:
+        view = samples
+
+    view = view.select_labels(ids=[label_id])
     sample = view.first()
     label = sample[label_dict[0]["field"]]
     if isinstance(label, fol._HasLabelList):
@@ -48,7 +57,7 @@ class EditLabelAttributes(foo.Operator):
 
         label_dict = ctx.selected_labels
 
-        sample, label = get_label(ctx.dataset, label_dict)
+        _, label = get_label(ctx.dataset, label_dict)
         ctx.params["parse_values"] = {}
         for attr_name, attr_value in label.iter_fields():
             if attr_name not in IGNORE_ATTRS and isinstance(attr_value, (str, bool, int, float)):
